@@ -50,73 +50,104 @@
     </div>
   </div>
 
-  <!-- Início Readme -->
-  <div readme>
-    <title>Pintura Numerada</title>
-    <h1>Pintura numerada:</h1>
-    <p>Gere imagens pintadas por número (vetorizadas com SVG) a partir de qualquer imagem de entrada.</p>
+  <div class="content-section-short">
+    <div class="container-tight">
+      <div data-duration-in="300" data-duration-out="100" data-current="Tab 1" data-easing="ease" class="w-tabs">
+        <div class="tab-menu-round w-tab-menu"></div>
+        <div class="w-tab-content">
+          <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
+            <div class="tab-pane-wrap">
 
-    <h2>Demonstração:</h2>
-    <p>Experimente <a href="https://harrisalexandre.github.io/arteDescomplicada/index.html">aqui</a></p>
+              <div class="faq-question-wrap"><a href="#" class="faq-question-bar w-inline-block">
+                  <!-- Início Readme -->
+                  <div readme>
+                    <title>Pintura Numerada</title>
+                    <h1>Pintura numerada:</h1>
+                    <p>Gere imagens pintadas por número (vetorizadas com SVG) a partir de qualquer imagem de entrada.
+                    </p>
 
-    <h3>Versão CLI:</h3>
-    <p>A versão CLI é um aplicativo de nó independente que faz a conversão de argumentos, por exemplo:</p>
-    <pre>
+                    <h2>Demonstração:</h2>
+                    <p>Experimente <a href="https://harrisalexandre.github.io/arteDescomplicada/index.html">aqui</a></p>
+
+                    <h3>Versão CLI:</h3>
+                    <p>A versão CLI é um aplicativo de nó independente que faz a conversão de argumentos, por exemplo:
+                    </p>
+                    <pre>
 paint-by-numbers-generator-win.exe -i input.png -o output.svg
 </pre>
-    <p>Você pode alterar as configurações em settings.json ou, opcionalmente, especificar um settings.json específico
-      com
-      o argumento `-c path_to_settings.json`.</p>
+                    <p>Você pode alterar as configurações em settings.json ou, opcionalmente, especificar um
+                      settings.json específico
+                      com
+                      o argumento `-c path_to_settings.json`.</p>
 
-    <p>As configurações contêm basicamente as mesmas configurações da versão web:</p>
-    <ul>
-      <li>randomSeed: a semente aleatória para escolher os pontos iniciais do algoritmo de agrupamento k-means. Isso
-        garante que os mesmos resultados sejam gerados todas as vezes.</li>
-      <li>kMeansNrOfClusters: o número de cores para quantizar a imagem.</li>
-      <li>kMeansMinDeltaDifference: a distância delta limite do cluster k-means a ser alcançada antes de parar. Ter um
-        valor maior acelerará o agrupamento, mas poderá produzir clusters abaixo do ideal. Padrão 1.</li>
-      <li>kMeansClusteringColorSpace: o espaço de cores para aplicar clustering.</li>
-      <li>kMeansColorRestrictions: Especifique quais cores devem ser usadas. Uma matriz de valores RGB (como matriz
-        numérica) ou nomes de cores (referência a aliases de cores). Se nenhuma cor for especificada, nenhuma restrição
-        será aplicada. Útil se você tiver apenas algumas cores de tinta em mãos.</li>
-      <li>colorAliases: mapa de chaves/valores onde as chaves são os nomes das cores e os valores são as cores RGB (como
-        array numérico). Você pode usar os nomes das cores nas restrições de cores acima. Os nomes também são
-        mencionados
-        no json de saída que informa quanto% da área é dessa cor específica.</li>
-    </ul>
-    <pre>
+                    <p>As configurações contêm basicamente as mesmas configurações da versão web:</p>
+                    <ul>
+                      <li>randomSeed: a semente aleatória para escolher os pontos iniciais do algoritmo de agrupamento
+                        k-means. Isso
+                        garante que os mesmos resultados sejam gerados todas as vezes.</li>
+                      <li>kMeansNrOfClusters: o número de cores para quantizar a imagem.</li>
+                      <li>kMeansMinDeltaDifference: a distância delta limite do cluster k-means a ser alcançada antes de
+                        parar. Ter um
+                        valor maior acelerará o agrupamento, mas poderá produzir clusters abaixo do ideal. Padrão 1.
+                      </li>
+                      <li>kMeansClusteringColorSpace: o espaço de cores para aplicar clustering.</li>
+                      <li>kMeansColorRestrictions: Especifique quais cores devem ser usadas. Uma matriz de valores RGB
+                        (como matriz
+                        numérica) ou nomes de cores (referência a aliases de cores). Se nenhuma cor for especificada,
+                        nenhuma restrição
+                        será aplicada. Útil se você tiver apenas algumas cores de tinta em mãos.</li>
+                      <li>colorAliases: mapa de chaves/valores onde as chaves são os nomes das cores e os valores são as
+                        cores RGB (como
+                        array numérico). Você pode usar os nomes das cores nas restrições de cores acima. Os nomes
+                        também são
+                        mencionados
+                        no json de saída que informa quanto% da área é dessa cor específica.</li>
+                    </ul>
+                    <pre>
 "colorAliases": {
     "A1": [            0,            0,            0        ],
     "A2": [            255,            0,            0        ],
     "A3": [            0,            255,            0        ],
 }
 </pre>
-    <ul>
-      <li>removeFacetsSmallerThanNrOfPoints: remove quaisquer facetas menores que a quantidade especificada de pixels.
-        Reduzir o valor criará resultados mais detalhados, mas pode ser muito mais difícil de pintar devido ao seu
-        tamanho.</li>
-      <li>removeFacetsFromLargeToSmall (true/false): do maior para o menor evitará que os limites distorçam as formas
-        porque as facetas menores atuam como pontos de ancoragem da borda, mas podem ser consideravelmente mais lentas.
-      </li>
-      <li>MaximumNumberOfFacets: se houver mais facetas do que o número máximo fornecido, continue removendo as menores
-        facetas até que o limite seja atingido.</li>
-      <li>nrOfTimesToHalveBorderSegments: reduzir a quantidade de pontos em um segmento de borda (usando a redução de
-        wavelet haar) suavizará mais a curva quadrática, mas com perda de detalhes. Um segmento (borda compartilhada com
-        uma faceta) sempre manterá seu ponto inicial e final.</li>
-      <li>strictPixelStripCleanupRuns: a limpeza de pixels estreitos remove faixas de linhas de pixels únicos, o que
-        faria
-        com que algumas facetas tivessem alguns segmentos de bordas que são estreitos demais para serem úteis. A remoção
-        de pequenas facetas pode introduzir novas faixas estreitas de pixels, então isso é repetido em algumas execuções
-        iterativas.</li>
-      <li>resizeImageIfTooLarge (true/false): se verdadeiro e a imagem de entrada for maior que as dimensões fornecidas,
-        ela será redimensionada para caber, mas manterá sua proporção.</li>
-      <li>resizeImageWidth: restrição de largura.</li>
-      <li>resizeImageHeight: restrição de altura.</li>
-    </ul>
-    <p>Existem também perfis de saída que você pode definir para gerar o resultado em svg, png, jpg com configurações
-      específicas, por exemplo:</p>
+                    <ul>
+                      <li>removeFacetsSmallerThanNrOfPoints: remove quaisquer facetas menores que a quantidade
+                        especificada de pixels.
+                        Reduzir o valor criará resultados mais detalhados, mas pode ser muito mais difícil de pintar
+                        devido ao seu
+                        tamanho.</li>
+                      <li>removeFacetsFromLargeToSmall (true/false): do maior para o menor evitará que os limites
+                        distorçam as formas
+                        porque as facetas menores atuam como pontos de ancoragem da borda, mas podem ser
+                        consideravelmente mais lentas.
+                      </li>
+                      <li>MaximumNumberOfFacets: se houver mais facetas do que o número máximo fornecido, continue
+                        removendo as menores
+                        facetas até que o limite seja atingido.</li>
+                      <li>nrOfTimesToHalveBorderSegments: reduzir a quantidade de pontos em um segmento de borda (usando
+                        a redução de
+                        wavelet haar) suavizará mais a curva quadrática, mas com perda de detalhes. Um segmento (borda
+                        compartilhada com
+                        uma faceta) sempre manterá seu ponto inicial e final.</li>
+                      <li>strictPixelStripCleanupRuns: a limpeza de pixels estreitos remove faixas de linhas de pixels
+                        únicos, o que
+                        faria
+                        com que algumas facetas tivessem alguns segmentos de bordas que são estreitos demais para serem
+                        úteis. A remoção
+                        de pequenas facetas pode introduzir novas faixas estreitas de pixels, então isso é repetido em
+                        algumas execuções
+                        iterativas.</li>
+                      <li>resizeImageIfTooLarge (true/false): se verdadeiro e a imagem de entrada for maior que as
+                        dimensões fornecidas,
+                        ela será redimensionada para caber, mas manterá sua proporção.</li>
+                      <li>resizeImageWidth: restrição de largura.</li>
+                      <li>resizeImageHeight: restrição de altura.</li>
+                    </ul>
+                    <p>Existem também perfis de saída que você pode definir para gerar o resultado em svg, png, jpg com
+                      configurações
+                      específicas, por exemplo:</p>
 
-    <pre>
+                    <pre>
 "outputProfiles": [
     {
         "name": "full",
@@ -152,15 +183,19 @@ paint-by-numbers-generator-win.exe -i input.png -o output.svg
 ]
 </pre>
 
-    <p>Isso define 3 perfis de saída. O perfil "completo" mostra rótulos, preenche as facetas e mostra as bordas com um
-      multiplicador de tamanho 3x, tamanho da fonte 50, cor #333 e saída para uma imagem png. O perfil bordersLabels
-      gera
-      um arquivo svg sem preencher facetas e jpgtest gera um arquivo jpg com configuração de qualidade jpg de 80.</p>
+                    <p>Isso define 3 perfis de saída. O perfil "completo" mostra rótulos, preenche as facetas e mostra
+                      as bordas com um
+                      multiplicador de tamanho 3x, tamanho da fonte 50, cor #333 e saída para uma imagem png. O perfil
+                      bordersLabels
+                      gera
+                      um arquivo svg sem preencher facetas e jpgtest gera um arquivo jpg com configuração de qualidade
+                      jpg de 80.</p>
 
-    <p>A versão CLI também gera um arquivo json que fornece mais informações sobre a paleta, quais cores são usadas e em
-      que quantidade, por exemplo:</p>
+                    <p>A versão CLI também gera um arquivo json que fornece mais informações sobre a paleta, quais cores
+                      são usadas e em
+                      que quantidade, por exemplo:</p>
 
-    <pre>
+                    <pre>
 ...
 {
   "areaPercentage": 0.20327615489130435,
@@ -171,102 +206,112 @@ paint-by-numbers-generator-win.exe -i input.png -o output.svg
 ...
 </pre>
 
-    <p>A versão CLI é útil se você deseja automatizar o processo em seus próprios scripts.</p>
+                    <p>A versão CLI é útil se você deseja automatizar o processo em seus próprios scripts.</p>
 
-    <h2>Screenshots:</h2>
+                    <h2>Screenshots:</h2>
 
-    <p>Imagem 1</p>
+                    <p>Imagem 1</p>
 
-    <div align="center">
-      <img
-        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
-        width="500px" />
-    </div>
+                    <div align="center">
+                      <img
+                        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
+                        width="500px" />
+                    </div>
 
-    <br>
+                    <br>
 
-    <p>Imagem 2</p>
-    <div align="center">
-      <img
-        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
-        width="500px" />
-    </div>
+                    <p>Imagem 2</p>
+                    <div align="center">
+                      <img
+                        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
+                        width="500px" />
+                    </div>
 
-    <h2>Exemplo de saída:</h2>
-    <p>Imagem 1</p>
+                    <h2>Exemplo de saída:</h2>
+                    <p>Imagem 1</p>
 
-    <div align="center">
-      <img
-        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
-        width="500px" />
-    </div>
+                    <div align="center">
+                      <img
+                        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
+                        width="500px" />
+                    </div>
 
-    <br>
+                    <br>
 
-    <p>Imagem 2</p>
-    <div align="center">
-      <img
-        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
-        width="500px" />
-    </div>
+                    <p>Imagem 2</p>
+                    <div align="center">
+                      <img
+                        src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac"
+                        width="500px" />
+                    </div>
 
-    <h2>Executando localmente:</h2>
+                    <h2>Executando localmente:</h2>
 
-    <p>Usei o VSCode, que possui suporte integrado para texto digitado. Para depurar, ele usa um pequeno servidor web
-      para
-      hospedar os arquivos no host local.</p>
+                    <p>Usei o VSCode, que possui suporte integrado para texto digitado. Para depurar, ele usa um pequeno
+                      servidor web
+                      para
+                      hospedar os arquivos no host local.</p>
 
-    <p>Para executar faça npm install para restaurar pacotes e então npm start iniciar o servidor web.</p>
+                    <p>Para executar faça npm install para restaurar pacotes e então npm start iniciar o servidor web.
+                    </p>
 
-    <h2>Compilando a versão cli:</h2>
+                    <h2>Compilando a versão cli:</h2>
 
-    <p>Instale o pkg primeiro se ainda não o tiver npm install pkg -g. Em seguida, na pasta raiz, execute pkg .. Isso
-      irá
-      gerar a saída para Linux, Windows e MacOS.</p>
+                    <p>Instale o pkg primeiro se ainda não o tiver npm install pkg -g. Em seguida, na pasta raiz,
+                      execute pkg .. Isso
+                      irá
+                      gerar a saída para Linux, Windows e MacOS.</p>
 
-  </div readme>
+                  </div readme>
 
-  <!-- Final Readme -->
+                  <!-- Final Readme -->
 
 
-  <!-- Início Footer-->
-  <div class="footer">
-    <div class="container">
-      <div class="w-layout-grid footer-grid">
-        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5a-dcc6da57" class="footer-column"><img
-            src="images/arte_descomplicada_logo.svg" width="150" alt="" class="footer-logo">
-          <p>Está em busca de uma atividade relaxante, essa é a escolha certa para você!</p>
-        </div>
-        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5e-dcc6da57" class="footer-column">
-          <a href="/arteDescomplicada/index.html" aria-current="page" class="footer-link w--current">Home</a>
-        </div>
-        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5e-dcc6da57" class="footer-column">
-          <a href="/arteDescomplicada/entrada.html" class="footer-link">Entrada</a>
-        </div>
-        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5e-dcc6da57" class="footer-column">
-          <a href="/arteDescomplicada/faq.html" class="footer-link">FAQ</a>
-        </div>
-      </div>
-      <div class="footer-legal">
-        <div class="footer-detail-left">
-          <div class="legal">Desenvolvido por <a href="https://www.instagram.com/_harrisalexandre/" target="_blank"
-              class="webflow-link">_harrisalexandre</a>
-          </div>
-          <div class="footer-detail-right">
-            <div class="social-icon-wrap">
-              <a href="https://www.instagram.com/_harrisalexandre/" class="social-link w-inline-block">
-                <img src="images/instagram.svg" alt="" class="social-icon"></a>
+                  <!-- Início Footer-->
+                  <div class="footer">
+                    <div class="container">
+                      <div class="w-layout-grid footer-grid">
+                        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5a-dcc6da57" class="footer-column"><img
+                            src="images/arte_descomplicada_logo.svg" width="150" alt="" class="footer-logo">
+                          <p>Está em busca de uma atividade relaxante, essa é a escolha certa para você!</p>
+                        </div>
+                        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5e-dcc6da57" class="footer-column">
+                          <a href="/arteDescomplicada/index.html" aria-current="page"
+                            class="footer-link w--current">Home</a>
+                        </div>
+                        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5e-dcc6da57" class="footer-column">
+                          <a href="/arteDescomplicada/entrada.html" class="footer-link">Entrada</a>
+                        </div>
+                        <div id="w-node-_67f7db32-28d2-9f37-8b84-a159dcc6da5e-dcc6da57" class="footer-column">
+                          <a href="/arteDescomplicada/faq.html" class="footer-link">FAQ</a>
+                        </div>
+                      </div>
+                      <div class="footer-legal">
+                        <div class="footer-detail-left">
+                          <div class="legal">Desenvolvido por <a href="https://www.instagram.com/_harrisalexandre/"
+                              target="_blank" class="webflow-link">_harrisalexandre</a>
+                          </div>
+                          <div class="footer-detail-right">
+                            <div class="social-icon-wrap">
+                              <a href="https://www.instagram.com/_harrisalexandre/" class="social-link w-inline-block">
+                                <img src="images/instagram.svg" alt="" class="social-icon"></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Final Footer -->
+                  </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Final Footer -->
 
-    <!-- Início scripts -->
-    <script src="js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script>
-    <script src="js/webflow.bad13ffae.js" type="text/javascript"></script>
-    <!-- Final scripts -->
+      <!-- Início scripts -->
+      <script src="js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script>
+      <script src="js/webflow.bad13ffae.js" type="text/javascript"></script>
+      <!-- Final scripts -->
 </body>
 
 </html>
