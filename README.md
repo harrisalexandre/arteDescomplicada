@@ -3,7 +3,7 @@ Gere imagens pintadas por número (vetorizadas com SVG) a partir de qualquer ima
 
 ## Demonstração:
 
-Experimente [aqui](https://harrisalexandre.github.io/pinturapornumeros/)
+Experimente [aqui](https://harrisalexandre.github.io/arteDescomplicada/)
 
 ### Versão CLI:
 
