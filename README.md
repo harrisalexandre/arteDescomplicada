@@ -92,35 +92,42 @@ A versão CLI também gera um arquivo json que fornece mais informações sobre 
 
 A versão CLI é útil se você deseja automatizar o processo em seus próprios scripts.
 
-## Screenshots:
+## Saída da aplicação:
 
 <p>Imagem 1</p>
 
 <div alinhar="center">
-<img src="..images/foto-renderizada.png" />
-	images/foto-renderizada.png
+<img src="/images/pintando.jpeg" width="500px" />
 </div>
 
 <br>
 
 <p>Imagem 2</p>
 <div alinhar="center">
-<img src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac" width="500px" />
+<img src="/images/pintando.jpeg" width="500px" />
+</div>
+
+<p>Imagem 3</p>
+<div alinhar="center">
+<img src="/images/pintando.jpeg" width="500px" />
 </div>
 
 ## Exemplo de saída:
-<p>Imagem 1</p>
+
+<p>Pintando:</p>
+<div alinhar="center">
+<img src="/images/pintando.jpeg" width="500px" />
+</div>
+
+<p>Pintura emoldurada</p>
 
 <div alinhar="center">
-<img src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac" width="500px" />
+<img src="/images/quadro-moldura.jpg" width="500px" />
 </div>
 
 <br>
 
-<p>Imagem 2</p>
-<div alinhar="center">
-<img src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac" width="500px" />
-</div>
+
 
 ## Executando localmente:
 
