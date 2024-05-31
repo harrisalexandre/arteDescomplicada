@@ -97,7 +97,8 @@ A versão CLI é útil se você deseja automatizar o processo em seus próprios 
 <p>Imagem 1</p>
 
 <div alinhar="center">
-<img src="https://github.com/harrisalexandre/pinturapornumeros/assets/50559815/52ebba22-80c2-462f-bb0b-ad5d7ccd57ac" width="500px" />
+<img src="..images/foto-renderizada.png" />
+	images/foto-renderizada.png
 </div>
 
 <br>
