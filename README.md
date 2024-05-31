@@ -93,33 +93,31 @@ A versão CLI também gera um arquivo json que fornece mais informações sobre 
 A versão CLI é útil se você deseja automatizar o processo em seus próprios scripts.
 
 ## Saída da aplicação:
-
-<p>Imagem 1</p>
-
-<div alinhar="center">
-<img src="/images/pintando.jpeg" width="500px" />
-</div>
+<p>O que a app devolve:</p>
+    <h2>Simulador</h2>
+        <table>
+          <tr>
+            <th>Imagem para pintura</th>
+            <th>Paleta de cores numeradas</th>
+            <th>Pintura da tela para referência</th>
+          </tr>
+          <tr>
+            <!--Entrada-->
+            <td><img src="/images/imagem-para-pintar.png" width="500px" /></td>
+            <td><img src="/images/palette.png" width="500px" /></td>
+            <td><img src="/images/foto-renderizada.png" width="500px" /></td>
+	</table>
 
 <br>
 
-<p>Imagem 2</p>
-<div alinhar="center">
-<img src="/images/pintando.jpeg" width="500px" />
-</div>
-
-<p>Imagem 3</p>
-<div alinhar="center">
-<img src="/images/pintando.jpeg" width="500px" />
-</div>
-
-## Exemplo de saída:
+## Pintura que fiz a partir da app:
 
 <p>Pintando:</p>
 <div alinhar="center">
 <img src="/images/pintando.jpeg" width="500px" />
 </div>
 
-<p>Pintura emoldurada</p>
+<p>Pintura emoldurada:</p>
 
 <div alinhar="center">
 <img src="/images/quadro-moldura.jpg" width="500px" />
